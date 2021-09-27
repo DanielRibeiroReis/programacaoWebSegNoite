@@ -8,7 +8,7 @@
 </head>
 <body>
 Preencha os seus dados pessoais:
-	<form action="ServletTela1Cadastro">
+	<form action="ServletTela1CadastroSessao" method="post">
 		Nome: <input type="text" name="nome">
 		Sobrenome: <input type="text" name="sobrenome"><br>
 		Endereço residencial:<br>

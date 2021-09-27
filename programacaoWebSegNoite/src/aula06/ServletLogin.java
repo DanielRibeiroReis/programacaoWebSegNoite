@@ -48,10 +48,10 @@ public class ServletLogin extends HttpServlet {
 		if (autenticar(nomeUsuario,senhaUsuario)) {
 			HttpSession sessao = request.getSession();
 			sessao.setAttribute(USUARIO, nomeUsuario);
+//			resposta.write("Bem vindo "+ nomeUsuario);
 			
-			sessao.getAttribute(USUARIO);
+			request.getRequestDispatcher("ServletMenu").forward(request, response);
 			
-			resposta.write("Bem vindo "+ nomeUsuario);
 		} else {
 			resposta.write("Usuário e senha inválidos");
 		}
@@ -63,7 +63,7 @@ public class ServletLogin extends HttpServlet {
 		// Aqui os acessos ao banco de dados serão feitos para validar o usuário
 		
 		// Regra: Usuário deve ser preenchido e a senha deve ser 1234
-		if (!nomeUsuario.equals("") && !senhaUsuario.equals("") && nomeUsuario != null && senhaUsuario.equals("1234")) {
+		if (nomeUsuario != null && !nomeUsuario.equals("") && senhaUsuario != null && !senhaUsuario.equals("") && senhaUsuario.equals("1234")) {
 			return true;
 		}
 		
